@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/layouts">
+    <decorator name="guest" page="guest.jsp">
+        <pattern>*/signin</pattern>
+        <pattern>*/signup</pattern>
+        <pattern>*/user/reset*</pattern>
+        <pattern>*/user/send</pattern>
+        <pattern>*/user/confirm</pattern>
+    </decorator>
+    <decorator name="auth" page="auth.jsp">
+        <pattern>*/*</pattern>
+        <pattern>*/user</pattern>
+        <pattern>*/prospects*</pattern>
+    </decorator>
+</decorators>
