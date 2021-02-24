@@ -15,10 +15,10 @@
 
 
     <h1>Overview</h1>
-    <c:forEach items="${efforts}" var="effort">
-        <c:if test="${effort.prospectActivities.size() > 0}">
+    <c:forEach items="${customers}" var="customer">
+        <c:if test="${customer.prospectActivities.size() > 0}">
             <p>
-                <c:forEach items="${effort.prospectActivities}" var="activity">
+                <c:forEach items="${customer.prospectActivities}" var="activity">
                    ${activity.name} >
                 </c:forEach>
             </p>
