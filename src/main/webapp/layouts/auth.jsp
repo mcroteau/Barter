@@ -1,7 +1,7 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
 <%@ taglib prefix="Parakeet" uri="/META-INF/tags/parakeet.tld"%>
 <%@ page import="xyz.strongperched.Parakeet" %>
-<%@ page import="sequence.common.Constants" %>
+<%@ page import="barter.common.Constants" %>
 
 <html>
 <head>
@@ -9,13 +9,13 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" type="image/png" href="/z/assets/media/icon.png?v=<%=System.currentTimeMillis()%>">
+    <link rel="icon" type="image/png" href="/shop/assets/media/icon.png?v=<%=System.currentTimeMillis()%>">
 
-    <link rel="stylesheet" href="/z/assets/css/packages/grid.css?v=<%=System.currentTimeMillis()%>">
-    <link rel="stylesheet" href="/z/assets/css/base.css?v=<%=System.currentTimeMillis()%>">
-    <link rel="stylesheet" href="/z/assets/css/app.css?v=<%=System.currentTimeMillis()%>">
+    <link rel="stylesheet" href="/shop/assets/css/packages/grid.css?v=<%=System.currentTimeMillis()%>">
+    <link rel="stylesheet" href="/shop/assets/css/base.css?v=<%=System.currentTimeMillis()%>">
+    <link rel="stylesheet" href="/shop/assets/css/app.css?v=<%=System.currentTimeMillis()%>">
 
-    <script type="text/javascript" src="/z/assets/js/packages/jquery.js"></script>
+    <script type="text/javascript" src="/shop/assets/js/packages/jquery.js"></script>
 
 </head>
 <body>

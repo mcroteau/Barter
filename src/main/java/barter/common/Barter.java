@@ -5,8 +5,6 @@ import org.apache.commons.validator.routines.EmailValidator;
 import org.apache.log4j.Logger;
 import org.springframework.core.env.Environment;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import barter.model.ProspectActivity;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DateFormat;
@@ -137,19 +135,6 @@ public class Barter {
 			dateString = sdf2.format(d);
 		}catch(Exception ex){}
 		return dateString;
-	}
-
-	private List<ProspectActivity> sort(List<ProspectActivity> activities){
-		Comparator<ProspectActivity> comparator = new Comparator<ProspectActivity>() {
-			@Override
-			public int compare(ProspectActivity a1, ProspectActivity a2) {
-				Long p1 = a1.getCompleteDate();
-				Long p2 = a2.getCompleteDate();
-				return p2.compareTo(p1);
-			}
-		};
-		Collections.sort(activities, comparator);
-		return activities;
 	}
 
 	public static boolean isTestEnv(Environment env){

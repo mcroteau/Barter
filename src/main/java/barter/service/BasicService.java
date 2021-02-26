@@ -19,75 +19,24 @@ public class BasicService {
     @Autowired
     AuthService authService;
 
-    @Autowired
-    ProspectRepo prospectRepo;
-
-    @Autowired
-    StatusRepo statusRepo;
-
-    @Autowired
-    EffortRepo effortRepo;
-
-    @Autowired
-    ActivityRepo activityRepo;
 
     public String index(ModelMap modelMap) {
-        if(!authService.isAuthenticated()){
-            return "redirect:/signin";
+        if(authService.isAuthenticated()){
+            return "review";
         }
-        /*
-            Prospects Count
-            # Prospect in prospect|working|customer
-            Actions by percent
-            Avg Barter.
-            Avg Barter for Customers
-         */
-        Long count = prospectRepo.getCount();
-        List<ProspectCount> prospectCounts = new ArrayList<>();
-        List<Status> statuses = statusRepo.getList();
-        for(Status status: statuses){
-            ProspectCount prospectCount = new ProspectCount();
-            prospectCount.setCount(prospectRepo.getCount(status.getId()));
-            prospectCount.setStatus(status);
-            prospectCounts.add(prospectCount);
-        }
-
-        List<Effort> efforts = effortRepo.getSuccesses();
-        for(Effort effort: efforts){
-            Prospect prospect = prospectRepo.get(effort.getProspectId());
-            effort.setProspect(prospect);
-
-            Status startingStatus = statusRepo.get(effort.getStartingStatusId());
-            Status endingStatus = statusRepo.get(effort.getEndingStatusId());
-
-            effort.setStartingStatus(startingStatus);
-            effort.setEndingStatus(endingStatus);
-
-            List<ProspectActivity> prospectActivities = effortRepo.getActivities(effort.getId());
-            for(ProspectActivity prospectActivity: prospectActivities){
-                Activity activity = activityRepo.get(prospectActivity.getActivityId());
-                prospectActivity.setName(activity.getName());
-            }
-            effort.setProspectActivities(prospectActivities);
-        }
-
-        modelMap.put("prospectCount", count);
-        modelMap.put("efforts", efforts);
-        modelMap.put("prospectCounts", prospectCounts);
-
-        return "index";
+        return "base/signin";
     }
 
     public String showSignin() {
         if(authService.isAuthenticated()){
             return "redirect:/overview";
         }
-        return "basic/signin";
+        return "base/signin";
     }
 
     public String showSignup() {
         authService.signout();
-        return "basic/signup";
+        return "base/signup";
     }
 
 }

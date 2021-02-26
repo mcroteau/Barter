@@ -1,17 +1,24 @@
+<%@ page import="org.springframework.context.ApplicationContext" %>
+<%@ page import="org.springframework.web.context.support.WebApplicationContextUtils" %>
+<%@ page import="barter.service.ViewService" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
 <%@ taglib prefix="parakeet" uri="/META-INF/tags/parakeet.tld"%>
-
+<%
+    ApplicationContext context =  WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+    ViewService viewService = (ViewService) context.getBean("viewService");
+%>
 <html>
 <head>
-    <title>Dynamics + Gain: <decorator:title default="The Goal to Remove Barriers"/></title>
 
-    <meta name="msvalidate.01" content="0793FD5B44ED7425260904AEE94180B2" />
+    <title><%=viewService.getShopName()%>: <decorator:title default="The Goal to Remove Barriers"/></title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" type="image/png" href="/z/assets/media/icon.png?v=<%=System.currentTimeMillis()%>">
-    <link rel="stylesheet" href="/z/assets/css/packages/grid.css?v=<%=System.currentTimeMillis()%>">
-    <link rel="stylesheet" href="/z/assets/css/base.css?v=<%=System.currentTimeMillis()%>">
-    <link rel="stylesheet" href="/z/assets/css/app.css?v=<%=System.currentTimeMillis()%>">
+    <link rel="icon" type="image/png" href="/shop/assets/media/icon.png?v=<%=System.currentTimeMillis()%>">
+    <link rel="stylesheet" href="/shop/assets/css/packages/grid.css?v=<%=System.currentTimeMillis()%>">
+    <link rel="stylesheet" href="/shop/assets/css/base.css?v=<%=System.currentTimeMillis()%>">
+    <link rel="stylesheet" href="/shop/assets/css/app.css?v=<%=System.currentTimeMillis()%>">
 
     <script type="text/javascript" src="/z/assets/js/packages/jquery.js"></script>
 

@@ -25,6 +25,14 @@ create table user_roles(
 	user_id bigint NOT NULL REFERENCES users(id)
 );
 
+create table designs (
+	id bigint PRIMARY KEY AUTO_INCREMENT,
+	name character varying (154),
+	design text,
+	css text,
+	javascript text
+);
+
 create table categories (
 	id bigint PRIMARY KEY AUTO_INCREMENT,
 	uri character varying (154),
@@ -32,6 +40,6 @@ create table categories (
 	description text,
 	image_uri character varying (254),
 	design_id bigint NOT NULL REFERENCES designs(id)
-)
+);
 
 

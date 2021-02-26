@@ -7,7 +7,7 @@ import xyz.strongperched.resources.access.Accessor;
 
 import java.util.Set;
 
-public class BarterAccessor implements xyz.strongperched.resources.access.Accessor {
+public class BarterAccessor implements Accessor {
 
     @Autowired
     private UserRepo userRepo;

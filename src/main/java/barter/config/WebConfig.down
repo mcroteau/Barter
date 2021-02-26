@@ -1,0 +1,26 @@
+package barter.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/assets/");
+        registry.addResourceHandler("/i18n/**").addResourceLocations("classpath:/i18n/");
+        registry.addResourceHandler("/sitemaps/**").addResourceLocations("classpath:/sitemaps/");
+    }
+
+    @Bean
+    public InternalResourceViewResolver viewResolver() {
+        InternalResourceViewResolver irvr = new InternalResourceViewResolver();
+        irvr.setPrefix("/pages/");
+        irvr.setSuffix(".jsp");
+        return irvr;
+    }
+}

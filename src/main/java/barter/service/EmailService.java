@@ -20,25 +20,25 @@ import org.springframework.stereotype.Service;
 @PropertySource("classpath:application.properties")
 public class EmailService extends Thread {
 
-    @Value("${business.name}")
+    @Value("${shop.name}")
     private String businessName;
 
-    @Value("${mail.smtp.host}")
+    @Value("${smtp.host}")
     private String host;
 
-    @Value("${mail.smtp.port}")
+    @Value("${smtp.port}")
     private String port;
 
-    @Value("${mail.smtp.username}")
+    @Value("${smtp.username}")
     private String username;
 
-    @Value("${mail.smtp.password}")
+    @Value("${smtp.password}")
     private String password;
 
-    @Value("${mail.smtp.auth}")
+    @Value("${smtp.auth}")
     private String auth;
 
-    @Value("${mail.smtp.starttls.enabled}")
+    @Value("${smtp.starttls.enabled}")
     private String starttls;
 
 
