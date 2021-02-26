@@ -1,6 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
 <%@ taglib prefix="parakeet" uri="/META-INF/tags/parakeet.tld"%>
+<html>
+<head>
+    <title>Signup</title>
+</head>
+<body>
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
@@ -102,3 +107,5 @@
     }
 
 </script>
+</body>
+</html>

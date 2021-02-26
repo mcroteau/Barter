@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Dynamics +Gain: Signin</title>
+    <title>Signin</title>
 </head>
 <body>
 
