@@ -40,7 +40,7 @@
             <decorator:body />
 
             <div id="footer-navigation" style="margin-top:30px;">
-                <%if(Parakeet.hasRole(Constants.ADMIN_ROLE)){%>
+                <%if(Parakeet.hasRole(Constants.SUPER_ROLE)){%>
                     <a href="/z/prospects" class="href-dotted">Prospects</a>
                 <%}%>
             </div>

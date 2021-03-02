@@ -1,13 +1,10 @@
 package barter.model;
 
-public class Category {
-
+public class Shop {
     Long id;
     String uri;
-    String name;
     String description;
-    String imageUri;
-    Long designId;
+    String designId;
 
     public Long getId() {
         return id;
@@ -25,14 +22,6 @@ public class Category {
         this.uri = uri;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -41,19 +30,11 @@ public class Category {
         this.description = description;
     }
 
-    public String getImageUri() {
-        return imageUri;
-    }
-
-    public void setImageUri(String imageUri) {
-        this.imageUri = imageUri;
-    }
-
-    public Long getDesignId() {
+    public String getDesignId() {
         return designId;
     }
 
-    public void setDesignId(Long designId) {
+    public void setDesignId(String designId) {
         this.designId = designId;
     }
 }

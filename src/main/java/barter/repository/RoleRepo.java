@@ -11,11 +11,13 @@ import java.util.List;
 
 @Repository
 public class RoleRepo {
-	
-	
+
+	JdbcTemplate jdbcTemplate;
+
 	@Autowired
-	public JdbcTemplate jdbcTemplate;
-	
+	public RoleRepo(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
 
 	public int count() {
 		String sql = "select count(*) from roles";

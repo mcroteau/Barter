@@ -137,12 +137,6 @@ public class Barter {
 		return dateString;
 	}
 
-	public static boolean isTestEnv(Environment env){
-		String[] profilesPre = env.getActiveProfiles();
-		List<String> profiles = Arrays.asList(profilesPre);
-		return profiles.contains(Constants.MOCK_ENVIRONMENT);
-	}
-
 	public static boolean isDevEnv(Environment env){
 		String[] profilesPre = env.getActiveProfiles();
 		List<String> profiles = Arrays.asList(profilesPre);

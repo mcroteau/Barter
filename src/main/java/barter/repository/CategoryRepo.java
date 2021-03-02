@@ -14,8 +14,12 @@ public class CategoryRepo {
 
     private static final Logger log = Logger.getLogger(CategoryRepo.class);
 
-    @Autowired
     JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    public CategoryRepo(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     public long getId() {
         String sql = "select max(id) from categories";
@@ -55,9 +59,9 @@ public class CategoryRepo {
     }
 
     public Category save(Category category){
-        String sql = "insert into categories (uri, name, desciption, image_uri, layout_id) values (?, ?, ?, ?, ?)";
+        String sql = "insert into categories (uri, name, desciption, image_uri, design_id) values (?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql, new Object[] {
-            category.getUri(), category.getName(), category.getDescription(), category.getImageUri(), category.getLayoutId()
+            category.getUri(), category.getName(), category.getDescription(), category.getImageUri(), category.getDesignId()
         });
 
         Long id = getId();
@@ -66,9 +70,9 @@ public class CategoryRepo {
     }
 
     public boolean update(Category category) {
-        String sql = "update categories set uri = ?, name = ?, description = ?, image_uri = ?, layout_id = ? where id = ?";
+        String sql = "update categories set uri = ?, name = ?, description = ?, image_uri = ?, design_id = ? where id = ?";
         jdbcTemplate.update(sql, new Object[] {
-            category.getUri(), category.getName(), category.getDescription(), category.getImageUri(), category.getLayoutId(), category.getId()
+            category.getUri(), category.getName(), category.getDescription(), category.getImageUri(), category.getDesignId(), category.getId()
         });
         return true;
     }

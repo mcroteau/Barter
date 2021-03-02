@@ -41,7 +41,6 @@ public class EmailService extends Thread {
     @Value("${smtp.starttls.enabled}")
     private String starttls;
 
-
     private String protocol = "smtp";
 
 

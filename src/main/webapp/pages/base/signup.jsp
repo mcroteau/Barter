@@ -96,10 +96,10 @@
         }
     })
 
-    setTimeout(function(){
-        password.value = ""
-        email.value = ""
-    }, 1000)
+    // setTimeout(function(){
+    //     password.value = ""
+    //     email.value = ""
+    // }, 1000)
 
 
     function getRandom(){

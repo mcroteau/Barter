@@ -37,7 +37,7 @@ public class AuthService {
     }
 
     public boolean isAdministrator(){
-        return Parakeet.hasRole(Constants.ADMIN_ROLE);
+        return Parakeet.hasRole(Constants.SUPER_ROLE);
     }
 
     public boolean hasPermission(String permission){

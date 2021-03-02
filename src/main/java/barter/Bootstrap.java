@@ -43,13 +43,13 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
 	public void onApplicationEvent(ContextRefreshedEvent contextRefreshEvent) {
 		Parakeet.perch(accessor);
 
-		Role adminRole = roleRepo.find(Constants.ADMIN_ROLE);
+		Role superRole = roleRepo.find(Constants.SUPER_ROLE);
 		Role userRole = roleRepo.find(Constants.USER_ROLE);
 
-		if(adminRole == null){
-			adminRole = new Role();
-			adminRole.setName(Constants.ADMIN_ROLE);
-			roleRepo.save(adminRole);
+		if(superRole == null){
+			superRole = new Role();
+			superRole.setName(Constants.SUPER_ROLE);
+			roleRepo.save(superRole);
 		}
 
 		if(userRole == null){
@@ -58,12 +58,12 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
 			roleRepo.save(userRole);
 		}
 
-		User existing = userRepo.getByUsername(Constants.ADMIN_USERNAME);
+		User existing = userRepo.getByUsername(Constants.SUPER_USERNAME);
 		String password = Parakeet.dirty(Constants.PASSWORD);
 
 		if(existing == null){
 			User admin = new User();
-			admin.setUsername(Constants.ADMIN_USERNAME);
+			admin.setUsername(Constants.SUPER_USERNAME);
 			admin.setPassword(password);
 			userRepo.saveAdministrator(admin);
 		}

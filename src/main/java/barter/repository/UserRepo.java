@@ -19,14 +19,13 @@ public class UserRepo {
 
 	private static final Logger log = Logger.getLogger(UserRepo.class);
 
-	@Autowired
 	private RoleRepo roleRepo;
 
-	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	@Autowired
-	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+	private NamedParameterJdbcTemplate npJdbcTemplate;
+
+
 
 	public long getId() {
 		String sql = "select max(id) from users";
@@ -95,7 +94,7 @@ public class UserRepo {
 		long id = getId();
 		User savedUser = get(id);
 
-		checkSaveAdministratorRole(id);
+		checkSaveSuperRole(id);
 		checkSaveDefaultUserPermission(id);
 
 		return savedUser;
@@ -152,8 +151,8 @@ public class UserRepo {
 		return user.getPassword();
 	}
 
-	public boolean checkSaveAdministratorRole(long accountId){
-		Role role = roleRepo.find(Constants.ADMIN_ROLE);
+	public boolean checkSaveSuperRole(long accountId){
+		Role role = roleRepo.find(Constants.SUPER_ROLE);
 		UserRole existing = getUserRole(accountId, role.getId());
 		if(existing == null){
 			saveUserRole(accountId, role.getId());
@@ -264,4 +263,19 @@ public class UserRepo {
 		jdbcTemplate.update(sql, new Object[] { user.getUsername(), user.getPassword(), user.getStripeUserId(), user.getId() });
 		return true;
     }
+
+	@Autowired
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
+	@Autowired
+	public void setNpJdbcTemplate(NamedParameterJdbcTemplate npJdbcTemplate) {
+		this.npJdbcTemplate = npJdbcTemplate;
+	}
+
+	@Autowired
+	public void setRoleRepo(RoleRepo roleRepo){
+		this.roleRepo = roleRepo;
+	}
 }
